@@ -128,15 +128,22 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
+> **Note**: Before running the command, ensure you are in the directory containing the `docker-compose.yml` file, for example: `~Tractian-Case/docker`
+
 4. Run the services:
 
 - API server (if not running via Docker):
 
 `uvicorn endpoint-api.main:app --reload --host 0.0.0.0 --port 8181`
 
+> **Note**: To start the API server with hot reload, run the following command from the root directory (the parent of endpoint-api). This assumes your project structure is: `~Tractian-Case/endpoint-api/main.py`
+
 - Streamlit app (if not running via Docker):
 
 `streamlit run streamlit/streamlit_main.py`
+
+> **Note**:  Run this command from the root directory (the parent of streamlit). This assumes your project structure is:
+`~Tractian-Case/streamlit/streamlit_main.py`
 
 5. Open your browser
 
