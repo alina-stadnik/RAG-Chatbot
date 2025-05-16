@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  document-api:
+    env_file: ../.env
+    build:
+      context: .. # points to tractian-case dir
+      dockerfile: docker/api-docker/Dockerfile
+    image: tractian/document-api:latest
+    container_name: tractian-document-api
+    volumes:
+      - chromadb:/app/chromadb  # Shared volume for ChromaDB
+    ports:
+      - "8181:8181"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    restart: always
+    networks:
+      - tractian-net
+
+  document-chat-ui:
+    env_file: ../.env
+    build:
+      context: ..
+      dockerfile: docker/streamlit-docker/Dockerfile
+    image: tractian/document-chat-ui:latest 
+    container_name: tractian-document-chat-ui
+    volumes:
+      - chromadb:/app/chromadb  # Same volume as API
+    ports:
+      - "8503:8503"
+    depends_on:
+      - document-api
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    restart: always
+
+volumes:
+  chromadb:  # Named volume for persistent ChromaDB storage
+    driver: local
+  
+networks:
+  tractian-net:
+    driver: bridge
