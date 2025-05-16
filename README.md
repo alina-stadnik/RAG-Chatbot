@@ -124,8 +124,8 @@ pip install -r requirements.txt
 ### **Or Using Docker (single container)**
 
 ```
-docker build -t tractian-case:latest .
-docker run -p 8181:8181 -p 8503:8503 tractian-case:latest
+docker compose build --no-cache
+docker compose up -d
 ```
 
 4. Run the services:
