@@ -15,7 +15,7 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 from chatbot.chatbot import app
 from chatbot.tools import initialize_vector_store
-from utils.api_keys import validate_api_keys, validate_api_keys_precheck
+from utils.api_keys import validate_api_keys
 
 # Initialize logger
 logging.basicConfig(level=logging.INFO)
@@ -42,12 +42,11 @@ st.set_page_config(
 )
 
 # --- API Key Validation ---
-keys = validate_api_keys_precheck()
+keys = validate_api_keys()
 
 # --- Header ---
 st.html("""<h2 style="text-align: center;">📚🔍 <i> Do your LLM even RAG bro? </i> 🤖💬</h2>""")
 
-keys = validate_api_keys()
 
 # --- Initial Setup ---
 if "messages" not in st.session_state:

@@ -1,5 +1,4 @@
 import os
-import sys
 import streamlit as st
 from dotenv import load_dotenv
 
@@ -11,18 +10,6 @@ def load_api_keys():
         'openai': os.getenv("OPENAI_API_KEY"),
         'groq': os.getenv("GROQ_API_KEY")
     }
-
-def validate_api_keys_precheck():
-    """Initial non-Streamlit validation"""
-    keys = load_api_keys()
-    missing = [name for name, key in keys.items() if not key]
-    
-    # Critical failure if both keys missing
-    if len(missing) == 2:
-        print("ERROR: Missing both API keys. Add them to .env and restart.")
-        sys.exit(1)
-        
-    return keys
 
 def validate_api_keys(required_for=None):
     """
