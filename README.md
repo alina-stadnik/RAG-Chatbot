@@ -52,10 +52,6 @@ To support this functionality, a data pipeline was constructed to extract, proce
 
 > ⚠️ `POST /question`: _(Not implemented)_
 
-**Deployment**: The API server can be deployed using Docker:
-
-`docker build -t document-api -f docker/api-docker/Dockerfile .
-docker run -p 8080:8080 document-api`
 
 ```
 Tractian-Case/
@@ -109,7 +105,21 @@ Tractian-Case/
 
 `cd Tractian-Case`
 
-- **Set up environment**: 
+3. **Create the `.env`:**
+
+```
+touch .env
+echo "OPENAI_API_KEY=value" > .env
+echo "GROQ_API_KEY=value" > .env
+```
+
+This project requires API keys to interact with OpenAI and Groq services. These keys are essential for the project to function correctly.
+
+- If you don’t already have API keys, please create them at the following links:
+  - [**OpenAI**](https://openai.com/index/openai-api/)
+  - [**Groq**](https://console.groq.com/keys)
+
+## **Set up environment**: 
 
 ### **Using Conda**
 
@@ -134,9 +144,9 @@ docker compose up -d
 
 - API server (if not running via Docker):
 
-`uvicorn endpoint-api.main:app --reload --host 0.0.0.0 --port 8181`
+`uvicorn main:app --reload --host 0.0.0.0 --port 8181`
 
-> **Note**: To start the API server with hot reload, run the following command from the root directory (the parent of endpoint-api). This assumes your project structure is: `~Tractian-Case/endpoint-api/main.py`
+> **Note**: To start the API server with hot reload, run the following command inside the endpoint-api directory (where main.py is located).
 
 - Streamlit app (if not running via Docker):
 
