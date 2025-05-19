@@ -1,10 +1,10 @@
 ## **Introduction**
 
-Intelligent Agents are autonomous entities that perceive and act upon their environment based on prior knowledge and experiences (Russell e Norvig, 2021). Agents powered by Language Models (LMs) excel at reasoning, question answering, and content generation but face limitations in dynamic settings, including outdated knowledge, difficulty balancing goals, and hallucinations in critical decisions.
+Intelligent Agents are autonomous entities that perceive and act upon their environment based on prior knowledge and experiences [1]. Agents powered by Language Models (LMs) excel at reasoning, question answering, and content generation but face limitations in dynamic settings, including outdated knowledge, difficulty balancing goals, and hallucinations in critical decisions.
 
-These agents can be categorized into single-agent systems, which manage diverse tasks using general language abilities, and multi-agent systems (MAS), where specialized agents collaborate and may integrate reinforcement learning (Cheng et al., 2024).
+These agents can be categorized into single-agent systems, which manage diverse tasks using general language abilities, and multi-agent systems (MAS), where specialized agents collaborate and may integrate reinforcement learning [2].
 
-To address knowledge limitations, Retrieval-Augmented Generation (RAG) combines real-time information retrieval with text generation, enhancing accuracy and reducing hallucinations. RAG is widely used in research, question answering, and recommendation systems (Fan et al., 2024).
+To address knowledge limitations, Retrieval-Augmented Generation (RAG) combines real-time information retrieval with text generation, enhancing accuracy and reducing hallucinations. RAG is widely used in research, question answering, and recommendation systems [3].
 
 ## **Goals**:
 The objective of this project was to implement an agent capable of deciding whether to retrieve information from a knowledge base, which can be updated through a Streamlit interface by uploading one or more files in PDF format or image formats such as PNG, JPEG, or JPG using OCR.
@@ -165,3 +165,11 @@ docker compose up -d
 You can test with the example files located in the `sample-data`/ folder.
 
 #### Built with ❤️ using FastAPI, Streamlit, LangChain, LangGraph, ChromaDB, OCR, and PyPDF2 – ready to explore! 🚀
+
+### **References:**
+
+**[1].** Russell, S., Norvig, P. (2021). Artificial intelligence: A modern approach (4th ed.). Pearson.
+
+**[2].** Cheng, Y., Zhang, C., Zhang, Z., Meng, X., Hong, S., Li, W., Wang, Z., Wang, Z., Yin, F., Zhao, J., He, X. (2024). Exploring large language model based intelligent agents: Definitions, methods, and prospects. arXiv.
+
+**[3].** Fan, W., Ding, Y., Ning, L., Wang, S., Li, H., Yin, D., Chua, T.-S., Li, Q. (2024). A survey on RAG meeting LLMs: Towards retrieval-augmented large language models. Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '24), 6491–6501.
