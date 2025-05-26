@@ -21,7 +21,7 @@ def initialize_vector_store():
     global vector_store
     try:
         logger.info("Initializing vector store connection...")
-        vector_store = VectorUtils('chromadb')
+        vector_store = VectorUtils('../chromadb')
         logger.info("Vector store initialized successfully")
     except Exception as e:
         logger.error(f"Vector store initialization failed: {e}", exc_info=True)

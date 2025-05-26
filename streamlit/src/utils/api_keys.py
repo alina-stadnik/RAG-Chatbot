@@ -66,7 +66,7 @@ def validate_api_keys(required_for=None):
 
             6. Verify keys in container (optional):
                         
-            `docker exec -it tractian-document-api env | grep API_KEY`
+            `docker exec -it rag-document-api env | grep API_KEY`
             """)
             st.stop()
     

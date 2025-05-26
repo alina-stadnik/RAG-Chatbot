@@ -54,7 +54,7 @@ To support this functionality, a data pipeline was constructed to extract, proce
 
 
 ```
-Tractian-Case/
+RAG-Chatbot/
 ├── .env                         # Set this file: (OPENAI_API_KEY=your-key-here // GROQ_API_KEY=your-key-here)
 ├── docker/
 │   ├── api-docker/
@@ -99,11 +99,11 @@ Tractian-Case/
 
 1. Clone the repository:
 
-`git clone https://github.com/your-username/Tractian-Case.git`
+`git clone https://github.com/your-username/RAG-Chatbot.git`
 
 2. Navigate to the project directory:
 
-`cd Tractian-Case`
+`cd RAG-Chatbot`
 
 3. **Create the `.env`:**
 
@@ -138,7 +138,7 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
-> **Note**: Before running the command, ensure you are in the directory containing the `docker-compose.yml` file, for example: `~Tractian-Case/docker`
+> **Note**: Before running the command, ensure you are in the directory containing the `docker-compose.yml` file, for example: `~RAG-Chatbot/docker`
 
 4. Run the services:
 
@@ -153,7 +153,7 @@ docker compose up -d
 `streamlit run streamlit/streamlit_main.py`
 
 > **Note**:  Run this command from the root directory (the parent of streamlit). This assumes your project structure is:
-`~Tractian-Case/streamlit/streamlit_main.py`
+`~RAG-Chatbot/streamlit/streamlit_main.py`
 
 5. Open your browser
 

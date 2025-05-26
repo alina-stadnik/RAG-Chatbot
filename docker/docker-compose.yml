@@ -4,10 +4,10 @@ services:
   document-api:
     env_file: ../.env
     build:
-      context: .. # points to tractian-case dir
+      context: .. # points to rag-chatbot dir
       dockerfile: docker/api-docker/Dockerfile
-    image: tractian/document-api:latest
-    container_name: tractian-document-api
+    image: rag/document-api:latest
+    container_name: rag-document-api
     volumes:
       - chromadb:/app/chromadb  # Shared volume for ChromaDB
     ports:
@@ -17,15 +17,15 @@ services:
       - GROQ_API_KEY=${GROQ_API_KEY}
     restart: always
     networks:
-      - tractian-net
+      - rag-net
 
   document-chat-ui:
     env_file: ../.env
     build:
       context: ..
       dockerfile: docker/streamlit-docker/Dockerfile
-    image: tractian/document-chat-ui:latest 
-    container_name: tractian-document-chat-ui
+    image: rag/document-chat-ui:latest 
+    container_name: rag-document-chat-ui
     volumes:
       - chromadb:/app/chromadb  # Same volume as API
     ports:
@@ -42,5 +42,5 @@ volumes:
     driver: local
   
 networks:
-  tractian-net:
+  rag-net:
     driver: bridge
